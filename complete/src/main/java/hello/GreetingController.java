@@ -15,7 +15,7 @@ public class GreetingController {
     }
 
     @GetMapping("/contacts")
-    public String contacts(@RequestParam(name = "contact", required = false, defaultValue = "George\nPhone number: +7123456789\nemail: sample@example.com") String contact, Model model) {
+    public String contacts(@RequestParam(name = "contact", required = false, defaultValue = "George\n Phone number: +7123456789\n email: sample@example.com") String contact, Model model) {
         model.addAttribute("contact", contact);
         return "contacts";
     }
