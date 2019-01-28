@@ -27,8 +27,13 @@ public class GreetingController {
     }
 
     @GetMapping("/about")
-    public String about(@RequestParam(name = "content", required = false, defaultValue = "sample text") String content, Model model) {
-        model.addAttribute("content", content);
+    public String about(@RequestParam(name = "education", required = false, defaultValue = "sample text") String education,
+                        @RequestParam(name = "job", required = false, defaultValue = "sample text") String job,
+                        @RequestParam(name = "projects", required = false, defaultValue = "sample text") String projects,
+                        Model model) {
+        model.addAttribute("education", education);
+        model.addAttribute("job", job);
+        model.addAttribute("projects", projects);
         return "about";
     }
 }
