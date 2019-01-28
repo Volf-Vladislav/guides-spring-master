@@ -15,13 +15,19 @@ public class GreetingController {
     }
 
     @GetMapping("/contacts")
-    public String contacts(@RequestParam(name = "contact", required = false, defaultValue = "George\n Phone number: +7123456789\n email: sample@example.com") String contact, Model model) {
-        model.addAttribute("contact", contact);
+    public String contacts(@RequestParam(name = "name", required = false, defaultValue = "sample text") String name,
+                           @RequestParam(name = "phone", required = false, defaultValue = "sample text") String phone,
+                           @RequestParam(name = "email", required = false, defaultValue = "sample text") String email,
+                           Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("phone", phone);
+        model.addAttribute("email", email);
+
         return "contacts";
     }
 
     @GetMapping("/about")
-    public String about(@RequestParam(name = "content", required = false, defaultValue = "George\nPhone number: +7123456789\nemail: sample@example.com") String content, Model model) {
+    public String about(@RequestParam(name = "content", required = false, defaultValue = "sample text") String content, Model model) {
         model.addAttribute("content", content);
         return "about";
     }
